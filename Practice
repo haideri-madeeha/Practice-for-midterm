@@ -1,0 +1,22 @@
+def create_a_diamond_shape(n):
+    result = ""
+
+    if n % 2 == 0:
+        return "This is not an odd number."
+
+    for i in range(n):
+        if i >= (int(n / 2) + 1):
+            for l 
+            result += ' ' * ((int(n / 2) - i) * - 1) + '\n'
+
+        for j in range (int(n / 2) - i):
+            result += " "
+
+        for k in range(2 * i + 1):
+            result += '*'
+        
+        result += '\n'
+
+    return result.rstrip()
+
+print(create_a_diamond_shape(5))
