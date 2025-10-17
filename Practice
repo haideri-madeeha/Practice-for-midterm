@@ -21,4 +21,38 @@ def create_a_diamond_shape(n):
 
     return result.rstrip()
 
-#print(create_a_diamond_shape(9))
+#print(create_a_diamond_shape(7))
+
+def create_hollow_diamond(n):
+    result = ""
+
+    star = "*"
+    space = " "
+
+    if n % 2 == 0:
+        return "This is not an odd number."
+
+    for i in range(n):
+        if i >= (int(n / 2 + 1)):
+            if i == n - 1:
+                result += space * int(n / 2) + star + '\n'
+
+            else:
+                result += space * ((int(n / 2) - i) * - 1)
+
+                result += star + space * ((n - 2) - (2 * (i - (int(n / 2)))))
+
+                result += star + '\n'
+
+        else:
+            if i == 0:
+                result += space * int(n / 2) + star + '\n'
+
+            else:
+                result += space * (int(n / 2) - (i))
+        
+                result += star + space * (2 * (i - 1) + 1) + star + '\n'
+
+    return result.rstrip()
+
+print(create_hollow_diamond(7))
