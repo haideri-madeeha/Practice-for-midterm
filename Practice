@@ -57,21 +57,41 @@ def create_hollow_diamond(n):
 
 # print(create_hollow_diamond(7))
 
-def create_squared_shape(n):
+def create_circular_shape(n):
     result = ""
 
     star = "*"
     space = " "
 
-    if i >= (n / 2 + 1):
-        result +=
+    if n % 2 == 0:
+        return "This is not an odd number."
+    
+    if n == 1:
+        return "Insufficient range number."
 
     for i in range(n):
-        for j in range(i):
-            result += space * (n / 2 - (i - 1))
+        if i == 0 or i == n - 1:
+            result += space * int(n / 2)
+            
+            result += 2 * star + '\n'
 
-            result += star * (1 + (1 * )) + ((2 * (i - 1)) * space)
+        elif i == 1 or i == n - 2:
+            result += space * (int(n / 2) - 1)
 
-    return result.strip()
+            result += star + 2 * space + star + '\n'
+            
+        else:
+            if i >= 2 and i < (int(n / 2) + 1):
+                result += space * (int(n / 2) - i)
 
-print(create_squared_shape(7))
+                result += 2 * star + space * (2 * (i - 1)) + 2 * star + '\n'
+    
+            else:
+                if i >= (int(n / 2) + 1) and i < n - 2:
+                    result += space * ((int(n / 2) - i) * - 1)
+
+                    result += 2 * star + space * ((n - 3) - 2 * (i - (int(n / 2)))) + 2 * star + '\n'
+
+    return result.rstrip()
+
+print(create_circular_shape(7))
